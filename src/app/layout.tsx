@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { siteDetails } from "@/data/siteDetails";
 
 import "./globals.css";
@@ -37,12 +38,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        {siteDetails.googleAnalyticsId && (
-          <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />
-        )}
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Suspense fallback={null}>
+          <PostHogProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </PostHogProvider>
+        </Suspense>
       </body>
     </html>
   );
