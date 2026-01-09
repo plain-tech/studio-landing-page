@@ -1,25 +1,39 @@
 import { IFAQ } from "@/types";
-import { siteDetails } from "./siteDetails";
 
 export const faqs: IFAQ[] = [
-    {
-        question: `Is ${siteDetails.siteName} secure?`,
-        answer: 'Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our biometric authentication adds an extra layer of security.',
-    },
-    {
-        question: `Can I use ${siteDetails.siteName} on multiple devices?`,
-        answer: 'Absolutely! Your Finwise account syncs seamlessly across all your devices - smartphone, tablet, and computer.',
-    },
-    {
-        question: 'Can I connect all my bank accounts?',
-        answer: `Yes! ${siteDetails.siteName} supports connections with over 10,000 financial institutions worldwide. Simply log in through our secure portal to link your accounts.`
-    },
-    {
-        question: 'Do I need any financial expertise to use the investing features?',
-        answer: 'Not at all! Our expert-curated portfolios and educational resources make investing accessible to everyone, regardless of experience level.',
-    },
-    {
-        question: 'What if I need help using the app?',
-        answer: 'Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Finwise.'
-    }
+  {
+    question: "How does the credit system work?",
+    answer:
+      "Each design generation costs 1 credit with the standard model, or 3 credits with the Pro model for higher quality results. Unused credits never expire as long as your subscription is active. You can see your credit balance anytime in the app.",
+  },
+  {
+    question: "What's the difference between standard and Pro generations?",
+    answer:
+      "Pro generations use our most advanced AI model, producing higher quality, more detailed results with better understanding of complex design requests. Standard generations are faster and perfect for quick iterations and concept exploration.",
+  },
+  {
+    question: "What can I create with this tool?",
+    answer:
+      "You can generate high-quality AI interior design visualizations, edit existing renders with custom references, change materials, colors, furniture, decor, and more. Perfect for creating client-ready renders in seconds instead of hours.",
+  },
+  {
+    question: "Can I use custom references for materials and furniture?",
+    answer:
+      "Yes! Our AI supports custom references for materials, colors, furniture, decor, and anything else. Simply describe what you want or provide reference images to get exactly the look you're going for.",
+  },
+  {
+    question: "Do I need design experience to use the tool?",
+    answer:
+      'Not at all! Simply upload a photo of any room and describe what you want in plain English. Say things like "make it more modern" or "add a blue velvet sofa" - our AI understands natural language.',
+  },
+  {
+    question: "Is this web-based or do I need to install software?",
+    answer:
+      "Completely web-based. No downloads or installations required - just open your browser and start designing. Your projects are saved in the cloud and accessible from any device.",
+  },
+  {
+    question: "Can I use the generated images commercially?",
+    answer:
+      "Yes! All images you generate are yours to use for commercial purposes, including client presentations, marketing materials, and social media. Pro and Team plans include full commercial licensing.",
+  },
 ];

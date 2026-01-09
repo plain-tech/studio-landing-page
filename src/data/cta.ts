@@ -1,6 +1,7 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Transform Your Finances',
-    subheading: 'Your journey to financial freedom starts here. Download Finwise today and take the first step towards a brighter financial future!',
-    appStoreUrl: '#',
-    googlePlayUrl: '#'
-}
+  heading: "Try it for free!",
+  subheading:
+    "Your AI Interior Design Studio. Generate & edit client-ready renders in seconds, right in your browser.",
+  ctaText: "Start Designing",
+  ctaUrl: "https://app.plain-service.com/#/studio",
+};

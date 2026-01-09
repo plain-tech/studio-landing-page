@@ -2,42 +2,43 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
-import Logos from "@/components/Logos";
-import Benefits from "@/components/Benefits/Benefits";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
-import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
+import UseCases from "@/components/UseCases";
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
-      <Logos />
+
       <Container>
-        <Benefits />
+        {/* Use Cases Section */}
+        <UseCases />
 
-        <Section
-          id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
-        >
-          <Pricing />
-        </Section>
-
+        {/* Testimonials */}
         <Section
           id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
+          title="What designers are saying:"
+          description=""
         >
           <Testimonials />
         </Section>
 
-        <FAQ />
-
-        <Stats />
-        
+        {/* CTA */}
         <CTA />
+
+        {/* Pricing */}
+        <Section
+          id="pricing"
+          title="Pricing"
+          description="Simple, transparent pricing. Start free, upgrade when you need more."
+        >
+          <Pricing />
+        </Section>
+
+        {/* FAQ */}
+        <FAQ />
       </Container>
     </>
   );

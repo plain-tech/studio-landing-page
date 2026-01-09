@@ -1,12 +1,15 @@
 export const siteDetails = {
-    siteName: 'Finwise',
-    siteUrl: 'https://finwise-omega.vercel.app/',
-    metadata: {
-        title: 'Finwise - Next.js and Tailwind CSS Landing Page Template',
-        description: 'Finwise empowers businesses with cutting-edge technology solutions to drive success and efficiency.',
-    },
-    language: 'en-us',
-    locale: 'en-US',
-    siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // or use a string for the logo e.g. "TechStartup"
-    googleAnalyticsId: '', // e.g. G-XXXXXXX,
-}
+  siteName: "",
+  siteUrl: "https://app.plain-service.com",
+  appUrl: "https://app.plain-service.com/#/studio",
+  metadata: {
+    title:
+      "AI Interior Design Studio - Generate & Edit Visualisations in Seconds",
+    description:
+      "Generate & edit client-ready interior design renders in seconds. AI-powered visualisation studio created by interior design professionals.",
+  },
+  language: "en-us",
+  locale: "en-US",
+  siteLogo: `${process.env.BASE_PATH || ""}/images/logo.png`,
+  googleAnalyticsId: "",
+};

@@ -1,5 +1,7 @@
 export const heroDetails = {
-    heading: 'Smart, Secure, Simple Financial Management',
-    subheading: 'From effortless budgeting to real-time investment insights, Finwise puts you in control of your money like never before',
-    centerImageSrc: '/images/hero-mockup.webp',
-}
+  heading: "Interior Design Visualisation in seconds with AI.",
+  subheading:
+    "Generate & edit client-ready interior renders instantly. Your AI Interior Design Studio - no 3D software needed.",
+  ctaText: "Visualise",
+  ctaUrl: "https://app.plain-service.com/#/studio",
+};

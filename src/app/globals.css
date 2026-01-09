@@ -3,14 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #FED835;
-  --secondary: #304fff;
-
-  --primary-accent: #e5c230;
-  --foreground-accent: #454545;
-  --hero-background: #F3F3F5;
+  /* Background colors */
+  --background: #FAF8F5;
+  --background-dark: #1A1A1A;
+  --foreground: #1A1A1A;
+  
+  /* Primary golden/amber */
+  --primary: #D4A537;
+  --primary-accent: #C4962F;
+  --primary-light: #E5C76A;
+  
+  /* Secondary */
+  --secondary: #D4A537;
+  
+  /* Accent colors */
+  --foreground-accent: #666666;
+  --hero-background: #F5F1EB;
+  --card-background: #FFFFFF;
+  --border-color: #E5E0D8;
+  
+  /* Semantic colors */
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #EF4444;
 }
 
 html {
@@ -19,30 +34,14 @@ html {
 
 body {
   @apply text-lg;
-  
   color: var(--foreground);
   background: var(--background);
-  font-family: "Source Sans 3", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-.manrope {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
 #logos svg {

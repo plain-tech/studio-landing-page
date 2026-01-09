@@ -37,7 +37,6 @@ const BeforeAfterCarousel: React.FC<BeforeAfterCarouselProps> = ({
     const interval = setInterval(() => {
       setShowAfter((prev) => {
         if (prev) {
-          // After showing "after", move to next image
           setCurrentIndex((idx) => (idx + 1) % displayImages.length);
         }
         return !prev;
