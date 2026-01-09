@@ -17,8 +17,10 @@
     "next": "^14.2.13",
     "posthog-js": "^1.316.1",
     "react": "^18",
+    "react-compare-slider": "^3.1.0",
     "react-dom": "^18",
-    "react-icons": "^5.3.0"
+    "react-icons": "^5.3.0",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@types/node": "^20",

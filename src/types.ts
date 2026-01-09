@@ -67,5 +67,6 @@ export interface ISocials {
 export interface IUseCase {
   title: string;
   description: string;
-  imageSrc: string;
+  imageSrc: string; // Before image
+  afterImageSrc?: string; // After image for slider
 }
