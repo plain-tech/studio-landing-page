@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center pb-0 pt-32 md:pt-40 px-5"
+      className="relative flex flex-col items-center justify-center pb-0 pt-24 md:pt-28 px-5"
     >
       {/* Background pattern */}
       <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
@@ -22,30 +22,25 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="text-center max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground tracking-tight leading-tight">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight leading-tight">
           {heroDetails.heading}
         </h1>
-        <p className="mt-6 text-foreground-accent text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="mt-3 text-foreground-accent text-base md:text-lg max-w-xl mx-auto">
           {heroDetails.subheading}
         </p>
 
-        {/* Credibility badge */}
-        <p className="mt-3 text-sm text-foreground-accent/70">
-          Created by Interior Design industry professionals
-        </p>
-
         {/* CTA Button */}
-        <div className="mt-8">
+        <div className="mt-5">
           <Link
             href={heroDetails.ctaUrl}
-            className="inline-block px-10 py-4 bg-primary hover:bg-primary-accent text-foreground font-semibold text-lg rounded-full transition-colors shadow-lg hover:shadow-xl"
+            className="inline-block px-8 py-3 bg-primary hover:bg-primary-accent text-foreground font-semibold rounded-full transition-colors shadow-lg hover:shadow-xl"
           >
             {heroDetails.ctaText}
           </Link>
         </div>
 
         {/* Before/After Slider */}
-        <div className="mt-12 md:mt-16 relative z-10 max-w-3xl mx-auto">
+        <div className="mt-8 md:mt-12 relative z-10 w-full max-w-4xl mx-auto">
           <BeforeAfterSlider
             beforeImage={`${IMAGE_BASE}/main_1.webp`}
             afterImage={`${IMAGE_BASE}/main_2.webp`}

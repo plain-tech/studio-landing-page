@@ -30,7 +30,7 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   }
 
   return (
-    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
+    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl">
       <ReactCompareSlider
         itemOne={
           <ReactCompareSliderImage src={beforeImage} alt={beforeLabel} />

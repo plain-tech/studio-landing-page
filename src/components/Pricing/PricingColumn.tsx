@@ -80,14 +80,16 @@ const PricingColumn: React.FC<Props> = ({ tier, isYearly }: Props) => {
           )}
         </div>
 
-        {/* Credits badge */}
-        {credits !== "custom" && (
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full mb-4">
-            <span className="text-sm font-semibold text-foreground">
-              {credits.toLocaleString()} credits/month
-            </span>
-          </div>
-        )}
+        {/* Credits badge - maintain consistent height */}
+        <div className="h-9 mb-4">
+          {credits !== "custom" && (
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
+              <span className="text-sm font-semibold text-foreground">
+                {credits.toLocaleString()} credits/month
+              </span>
+            </div>
+          )}
+        </div>
 
         {/* CTA Button */}
         <Link
