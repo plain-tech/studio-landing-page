@@ -7,33 +7,12 @@ export const creditInfo = {
   yearlyDiscount: 20,
 };
 
+export const appUrl = "https://app.plain-service.com/#/studio";
+
 export const tiers: IPricing[] = [
   {
-    name: "AI Explorer",
-    subtitle: "Perfect for trying out AI design",
-    monthlyPrice: 5,
-    yearlyPrice: 4,
-    credits: 200,
-    features: [
-      { text: "200 credits per month", included: true },
-      { text: "Unlimited text to image", included: true },
-      {
-        text: "~200 Image generations",
-        included: true,
-        tooltip: "Standard model: 1 credit per generation",
-      },
-      {
-        text: "~66 Pro generations",
-        included: true,
-        tooltip: "Pro model: 3 credits per generation",
-      },
-      { text: "Email support", included: true },
-      { text: "Private mode", included: false },
-    ],
-    ctaText: "Get Started",
-  },
-  {
     name: "AI Designer",
+    slug: "ai_designer",
     subtitle: "For regular design work",
     monthlyPrice: 15,
     yearlyPrice: 12,
@@ -52,12 +31,12 @@ export const tiers: IPricing[] = [
         tooltip: "Pro model: 3 credits per generation",
       },
       { text: "Chat support", included: true },
-      { text: "Private mode", included: false },
     ],
     ctaText: "Get Started",
   },
   {
     name: "AI Pro",
+    slug: "ai_pro",
     subtitle: "For professional designers",
     monthlyPrice: 45,
     yearlyPrice: 36,
@@ -78,8 +57,7 @@ export const tiers: IPricing[] = [
         tooltip: "Pro model: 3 credits per generation",
       },
       { text: "Skip the queue", included: true },
-      { text: "x4 Generations at once", included: true },
-      { text: "Private mode", included: true },
+
       { text: "AI Interior Designer support", included: true },
       { text: "Priority support", included: true },
     ],
@@ -87,6 +65,7 @@ export const tiers: IPricing[] = [
   },
   {
     name: "Team",
+    slug: "team",
     subtitle: "For design studios & teams",
     monthlyPrice: "contact",
     credits: "custom",
@@ -95,12 +74,11 @@ export const tiers: IPricing[] = [
       { text: "Unlimited text to image", included: true },
       { text: "Unlimited generations", included: true },
       { text: "Skip the queue", included: true },
-      { text: "x4 Generations at once", included: true },
-      { text: "Private mode", included: true },
       { text: "AI Interior Designer support", included: true },
-      { text: "Team member management", included: true },
-      { text: "Dedicated support", included: true },
+      { text: "Project management tools", included: true },
     ],
-    ctaText: "Contact Sales",
+    ctaText: "Contact Us",
+    ctaUrl:
+      "mailto:hello@plain-service.com?subject=Team%20Plan%20Inquiry&body=Hi%2C%0A%0AI%27m%20interested%20in%20the%20Team%20plan%20for%20my%20design%20studio.%0A%0ATeam%20size%3A%20%0AExpected%20usage%3A%20%0A%0AThanks!",
   },
 ];

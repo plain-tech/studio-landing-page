@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             ))}
             <li>
               <Link
-                href={`mailto:hello@plain-service.com`}
+                href="mailto:hello@plain-service.com"
                 className="text-foreground border border-foreground hover:bg-foreground hover:text-white px-6 py-2.5 rounded-full font-semibold transition-colors"
               >
                 Contact us
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
                 href={siteDetails.appUrl}
                 className="text-white bg-foreground hover:bg-foreground/90 px-6 py-2.5 rounded-full font-semibold transition-colors"
               >
-                Decorate
+                Visualise
               </Link>
             </li>
           </ul>
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                 className="text-white bg-foreground hover:bg-foreground/90 px-5 py-2 rounded-full block w-fit font-semibold"
                 onClick={toggleMenu}
               >
-                Decorate
+                Visualise
               </Link>
             </li>
           </ul>

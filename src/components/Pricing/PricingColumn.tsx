@@ -1,8 +1,10 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { BsFillCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 import { FiInfo } from "react-icons/fi";
 
 import { IPricing } from "@/types";
+import { appUrl } from "@/data/pricing";
 
 interface Props {
   tier: IPricing;
@@ -12,6 +14,7 @@ interface Props {
 const PricingColumn: React.FC<Props> = ({ tier, isYearly }: Props) => {
   const {
     name,
+    slug,
     subtitle,
     monthlyPrice,
     yearlyPrice,
@@ -20,11 +23,17 @@ const PricingColumn: React.FC<Props> = ({ tier, isYearly }: Props) => {
     highlighted,
     badge,
     ctaText,
+    ctaUrl,
   } = tier;
 
   const displayPrice =
     isYearly && yearlyPrice !== undefined ? yearlyPrice : monthlyPrice;
   const isContactPricing = displayPrice === "contact";
+
+  // Build CTA URL with payment_plan parameter
+  const billingPeriod = isYearly ? "yearly" : "monthly";
+  const defaultCtaUrl = `${appUrl}?payment_plan=${slug}&billing=${billingPeriod}`;
+  const finalCtaUrl = ctaUrl || defaultCtaUrl;
 
   return (
     <div
@@ -81,16 +90,17 @@ const PricingColumn: React.FC<Props> = ({ tier, isYearly }: Props) => {
         )}
 
         {/* CTA Button */}
-        <button
+        <Link
+          href={finalCtaUrl}
           className={clsx(
-            "w-full py-3 px-4 rounded-full font-semibold transition-colors",
+            "block w-full py-3 px-4 rounded-full font-semibold transition-colors text-center",
             highlighted
               ? "bg-primary hover:bg-primary-accent text-foreground"
               : "bg-background-dark hover:bg-foreground text-white"
           )}
         >
           {ctaText || "Get Started"}
-        </button>
+        </Link>
       </div>
 
       {/* Features */}

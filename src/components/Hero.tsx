@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-import BeforeAfterCarousel from "./BeforeAfterCarousel";
+import BeforeAfterSlider from "./BeforeAfterSlider";
 import { heroDetails } from "@/data/hero";
+
+const IMAGE_BASE = "https://storage.googleapis.com/plain-public/web/img";
 
 const Hero: React.FC = () => {
   return (
@@ -42,9 +44,14 @@ const Hero: React.FC = () => {
           </Link>
         </div>
 
-        {/* Before/After Carousel */}
-        <div className="mt-12 md:mt-16 relative z-10">
-          <BeforeAfterCarousel images={[]} />
+        {/* Before/After Slider */}
+        <div className="mt-12 md:mt-16 relative z-10 max-w-3xl mx-auto">
+          <BeforeAfterSlider
+            beforeImage={`${IMAGE_BASE}/main_1.webp`}
+            afterImage={`${IMAGE_BASE}/main_2.webp`}
+            beforeLabel="Before"
+            afterLabel="After"
+          />
         </div>
       </div>
     </section>

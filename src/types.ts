@@ -24,6 +24,7 @@ export interface IPricingFeature {
 
 export interface IPricing {
   name: string;
+  slug: string;
   subtitle?: string;
   monthlyPrice: number | "contact";
   yearlyPrice?: number | "contact";
@@ -32,6 +33,7 @@ export interface IPricing {
   highlighted?: boolean;
   badge?: string;
   ctaText?: string;
+  ctaUrl?: string;
 }
 
 export interface IFAQ {
@@ -67,6 +69,6 @@ export interface ISocials {
 export interface IUseCase {
   title: string;
   description: string;
-  imageSrc: string; // Before image
-  afterImageSrc?: string; // After image for slider
+  imageSrc: string;
+  afterImageSrc?: string;
 }
