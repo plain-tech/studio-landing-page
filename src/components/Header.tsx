@@ -6,7 +6,6 @@ import { Transition } from "@headlessui/react";
 import { HiOutlineXMark, HiBars3 } from "react-icons/hi2";
 
 import Container from "./Container";
-import { menuItems } from "@/data/menuItems";
 import { siteDetails } from "@/data/siteDetails";
 
 const Header: React.FC = () => {
@@ -19,7 +18,7 @@ const Header: React.FC = () => {
   return (
     <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
       <Container className="!px-0">
-        <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-6">
+        <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-4">
           {/* Logo - empty spacer for layout */}
           <Link href="/" className="flex items-center">
             <span className="w-8 h-8" />
@@ -27,20 +26,10 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center space-x-4">
-            {menuItems.map((item) => (
-              <li key={item.text}>
-                <Link
-                  href={item.url}
-                  className="text-foreground hover:text-foreground-accent transition-colors"
-                >
-                  {item.text}
-                </Link>
-              </li>
-            ))}
             <li>
               <Link
                 href="mailto:hello@plain-service.com"
-                className="text-foreground border border-foreground hover:bg-foreground hover:text-white px-5 py-2 rounded-full font-semibold transition-colors text-sm"
+                className="text-foreground border border-foreground hover:bg-foreground hover:text-white px-6 py-3 rounded-full font-semibold transition-colors"
               >
                 Contact us
               </Link>
@@ -48,9 +37,9 @@ const Header: React.FC = () => {
             <li>
               <Link
                 href={siteDetails.appUrl}
-                className="text-foreground bg-primary hover:bg-primary-accent px-5 py-2 rounded-full font-semibold transition-colors text-sm"
+                className="text-foreground bg-primary hover:bg-primary-accent px-8 py-3 rounded-full font-semibold transition-colors"
               >
-                Visualise
+                Start designing
               </Link>
             </li>
           </ul>
@@ -87,24 +76,13 @@ const Header: React.FC = () => {
       >
         <div id="mobile-menu" className="md:hidden bg-white shadow-lg">
           <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
-            {menuItems.map((item) => (
-              <li key={item.text}>
-                <Link
-                  href={item.url}
-                  className="text-foreground hover:text-primary block"
-                  onClick={toggleMenu}
-                >
-                  {item.text}
-                </Link>
-              </li>
-            ))}
             <li>
               <Link
                 href={siteDetails.appUrl}
-                className="text-foreground bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit font-semibold"
+                className="text-foreground bg-primary hover:bg-primary-accent px-5 py-3 rounded-full block w-fit font-semibold"
                 onClick={toggleMenu}
               >
-                Visualise
+                Start designing
               </Link>
             </li>
           </ul>

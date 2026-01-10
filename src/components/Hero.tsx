@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center pb-0 pt-24 md:pt-28 px-5"
+      className="relative flex flex-col items-center justify-center pb-0 pt-16 md:pt-20 px-5"
     >
       {/* Background pattern */}
       <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
@@ -23,7 +23,8 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="text-center max-w-4xl mx-auto">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight leading-tight">
-          {heroDetails.heading}
+          Interior Design Visualisations in seconds with{" "}
+          <span className="text-primary">AI</span>.
         </h1>
         <p className="mt-3 text-foreground-accent text-base md:text-lg max-w-xl mx-auto">
           {heroDetails.subheading}
@@ -39,13 +40,15 @@ const Hero: React.FC = () => {
           </Link>
         </div>
 
-        {/* Before/After Slider */}
-        <div className="mt-8 md:mt-12 relative z-10 w-full max-w-4xl mx-auto">
+        {/* Before/After Slider - narrower width, show more of the bottom */}
+        <div className="mt-6 md:mt-8 relative z-10 w-full max-w-4xl mx-auto">
           <BeforeAfterSlider
             beforeImage={`${IMAGE_BASE}/main_1.webp`}
             afterImage={`${IMAGE_BASE}/main_2.webp`}
             beforeLabel="Before"
             afterLabel="After"
+            aspectRatio="16/10"
+            objectPosition="center 70%"
           />
         </div>
       </div>

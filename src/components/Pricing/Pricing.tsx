@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import PricingColumn from "./PricingColumn";
-import { tiers, creditInfo } from "@/data/pricing";
-import { FiInfo } from "react-icons/fi";
+import { tiers } from "@/data/pricing";
 
 const Pricing: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -34,24 +33,6 @@ const Pricing: React.FC = () => {
             Yearly
           </button>
         </div>
-
-        {/* Credit info notice */}
-        <div className="flex items-center gap-2 text-foreground-accent text-sm">
-          <FiInfo className="w-4 h-4" />
-          <span>
-            Unused credits never expire as long as your subscription stays
-            active
-          </span>
-        </div>
-      </div>
-
-      {/* Credit system explanation */}
-      <div className="text-center mb-8 p-4 bg-primary/10 rounded-xl max-w-2xl mx-auto">
-        <p className="text-sm text-foreground">
-          <strong>How credits work:</strong> 1 standard generation ={" "}
-          {creditInfo.standardGeneration} credit • Pro model generation ={" "}
-          {creditInfo.proModelGeneration} credits
-        </p>
       </div>
 
       {/* Pricing cards */}
@@ -64,7 +45,7 @@ const Pricing: React.FC = () => {
       {/* Yearly savings note */}
       {isYearly && (
         <p className="text-center mt-6 text-primary font-medium">
-          Save {creditInfo.yearlyDiscount}% with yearly billing
+          Save 20% with yearly billing
         </p>
       )}
     </div>

@@ -17,8 +17,8 @@ const UseCases: React.FC = () => {
         Drag the slider to see the transformation
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        {/* Before/After Slider */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 items-start">
+        {/* Before/After Slider with description */}
         <div className="order-2 lg:order-1">
           <BeforeAfterSlider
             beforeImage={activeUseCase.imageSrc}
@@ -36,37 +36,28 @@ const UseCases: React.FC = () => {
           </div>
         </div>
 
-        {/* Use Case List */}
+        {/* Use Case List - single column */}
         <div className="order-1 lg:order-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+          <div className="flex flex-col gap-2">
             {useCases.map((useCase, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`text-left p-4 rounded-xl transition-all duration-200 ${
+                className={`text-left px-4 py-3 rounded-lg transition-all duration-200 ${
                   activeIndex === index
-                    ? "bg-primary/20 border-2 border-primary"
-                    : "bg-white border-2 border-border-color hover:border-primary/50"
+                    ? "bg-primary/15 border-l-4 border-primary"
+                    : "bg-white border-l-4 border-transparent hover:bg-primary/5 hover:border-primary/30"
                 }`}
               >
-                <h4
-                  className={`font-semibold ${
+                <span
+                  className={`font-medium ${
                     activeIndex === index
                       ? "text-foreground"
                       : "text-foreground-accent"
                   }`}
                 >
                   {useCase.title}
-                </h4>
-                <p
-                  className={`text-sm mt-1 ${
-                    activeIndex === index
-                      ? "text-foreground-accent"
-                      : "text-foreground-accent/70"
-                  }`}
-                >
-                  {useCase.description}
-                </p>
+                </span>
               </button>
             ))}
           </div>

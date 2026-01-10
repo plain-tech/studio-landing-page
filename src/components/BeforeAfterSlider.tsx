@@ -11,6 +11,8 @@ interface BeforeAfterSliderProps {
   afterImage: string;
   beforeLabel?: string;
   afterLabel?: string;
+  aspectRatio?: string;
+  objectPosition?: string;
 }
 
 const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
@@ -18,24 +20,42 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   afterImage,
   beforeLabel = "Before",
   afterLabel = "After",
+  aspectRatio = "4/3",
+  objectPosition = "center center",
 }) => {
   const hasImages = beforeImage && afterImage;
 
   if (!hasImages) {
     return (
-      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-800 flex items-center justify-center text-white/40">
+      <div
+        className="relative w-full overflow-hidden rounded-xl bg-gray-800 flex items-center justify-center text-white/40"
+        style={{ aspectRatio }}
+      >
         <span className="text-sm">TODO: Add before/after images</span>
       </div>
     );
   }
 
   return (
-    <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl">
+    <div
+      className="relative w-full overflow-hidden rounded-xl"
+      style={{ aspectRatio }}
+    >
       <ReactCompareSlider
         itemOne={
-          <ReactCompareSliderImage src={beforeImage} alt={beforeLabel} />
+          <ReactCompareSliderImage
+            src={beforeImage}
+            alt={beforeLabel}
+            style={{ objectPosition }}
+          />
         }
-        itemTwo={<ReactCompareSliderImage src={afterImage} alt={afterLabel} />}
+        itemTwo={
+          <ReactCompareSliderImage
+            src={afterImage}
+            alt={afterLabel}
+            style={{ objectPosition }}
+          />
+        }
         position={50}
         className="w-full h-full"
       />

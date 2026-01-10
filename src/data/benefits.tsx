@@ -41,25 +41,25 @@ export const useCases: IUseCase[] = [
     afterImageSrc: `${IMAGE_BASE}/use_case_ideate_2.webp`,
   },
   {
-    title: "Improve Render Quality",
-    description:
-      "Enhance existing renders to client-ready, photorealistic quality.",
-    imageSrc: `${IMAGE_BASE}/use_case_render_improve_1.webp`,
-    afterImageSrc: `${IMAGE_BASE}/use_case_render_improve_2.webp`,
-  },
-  {
-    title: "Render from Draft",
-    description:
-      "Transform rough sketches and drafts into polished visualizations.",
-    imageSrc: `${IMAGE_BASE}/use_case_render_draft_1.webp`,
-    afterImageSrc: `${IMAGE_BASE}/use_case_render_draft_2.webp`,
-  },
-  {
     title: "Explore Styles",
     description:
       "Try different interior styles - modern, classic, minimalist, and more.",
     imageSrc: `${IMAGE_BASE}/use_case_explore_styles_1.webp`,
     afterImageSrc: `${IMAGE_BASE}/use_case_explore_styles_2.webp`,
+  },
+  {
+    title: "Render from Draft",
+    description:
+      "Transform rough sketches and drafts into polished visualisations.",
+    imageSrc: `${IMAGE_BASE}/use_case_render_draft_1.webp`,
+    afterImageSrc: `${IMAGE_BASE}/use_case_render_draft_2.webp`,
+  },
+  {
+    title: "Improve Render Quality",
+    description:
+      "Enhance existing renders to client-ready, photorealistic quality.",
+    imageSrc: `${IMAGE_BASE}/use_case_render_improve_1.webp`,
+    afterImageSrc: `${IMAGE_BASE}/use_case_render_improve_2.webp`,
   },
 ];
 

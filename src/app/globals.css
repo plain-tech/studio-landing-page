@@ -5,16 +5,16 @@
 :root {
   /* Background colors */
   --background: #FAF8F5;
-  --background-dark: #1A1A1A;
-  --foreground: #1A1A1A;
+  --background-dark: #232323;
+  --foreground: #232323;
   
-  /* Primary golden/amber */
-  --primary: #D4A537;
-  --primary-accent: #C4962F;
-  --primary-light: #E5C76A;
+  /* Primary golden/amber - rgb(189, 137, 76) */
+  --primary: #BD894C;
+  --primary-accent: #A87A42;
+  --primary-light: #D4A86A;
   
   /* Secondary */
-  --secondary: #D4A537;
+  --secondary: #BD894C;
   
   /* Accent colors */
   --foreground-accent: #666666;

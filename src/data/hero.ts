@@ -1,7 +1,7 @@
 export const heroDetails = {
-  heading: "Interior Design Visualisation in seconds with AI.",
+  heading: "Interior Design Visualisations in seconds with AI.",
   subheading:
-    "Generate & edit client-ready renders instantly. Created by Interior Design professionals.",
-  ctaText: "Visualise",
+    "Generate & edit client-ready renders instantly, for professionals.",
+  ctaText: "Start designing",
   ctaUrl: "https://app.plain-service.com/#/studio",
 };

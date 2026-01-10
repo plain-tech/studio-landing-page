@@ -59,8 +59,8 @@ const PricingColumn: React.FC<Props> = ({ tier, isYearly }: Props) => {
           <p className="text-sm text-foreground-accent mb-4">{subtitle}</p>
         )}
 
-        {/* Price */}
-        <div className="mb-4">
+        {/* Price - fixed height to prevent layout shift */}
+        <div className="mb-4 h-16">
           {isContactPricing ? (
             <p className="text-2xl font-bold text-foreground">Contact us</p>
           ) : (
@@ -71,21 +71,26 @@ const PricingColumn: React.FC<Props> = ({ tier, isYearly }: Props) => {
                   /month
                 </span>
               </p>
-              {isYearly && yearlyPrice && (
-                <p className="text-sm text-foreground-accent mt-1">
-                  Billed annually (${(yearlyPrice as number) * 12}/year)
-                </p>
-              )}
+              <p className="text-sm text-foreground-accent mt-1 h-5">
+                {isYearly && yearlyPrice ? (
+                  <>
+                    Billed annually ($
+                    {((yearlyPrice as number) * 12).toFixed(0)}/year)
+                  </>
+                ) : (
+                  <>&nbsp;</>
+                )}
+              </p>
             </>
           )}
         </div>
 
-        {/* Credits badge - maintain consistent height */}
+        {/* Image generations badge - maintain consistent height */}
         <div className="h-9 mb-4">
           {credits !== "custom" && (
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
               <span className="text-sm font-semibold text-foreground">
-                {credits.toLocaleString()} credits/month
+                {credits.toLocaleString()} images/month
               </span>
             </div>
           )}
