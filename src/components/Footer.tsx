@@ -9,12 +9,7 @@ const Footer: React.FC = () => {
     <footer className="bg-background-dark text-white py-12">
       <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <Link href="/" className="flex items-center gap-1">
-            <span className="text-2xl font-black cursor-pointer tracking-tight">
-              plain<span className="text-primary">.</span>
-            </span>
-          </Link>
-          <p className="mt-3.5 text-white/70">{footerDetails.subheading}</p>
+          <p className="text-white/70">{footerDetails.subheading}</p>
         </div>
         <div>
           <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
