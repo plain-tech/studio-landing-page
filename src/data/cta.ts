@@ -3,5 +3,5 @@ export const ctaDetails = {
   subheading:
     "Your AI Interior Design Studio. Generate & edit client-ready renders in seconds, right in your browser.",
   ctaText: "Start Designing",
-  ctaUrl: "https://app.plain-service.com/#/studio",
+  ctaUrl: "https://app.therenderai.com/#/studio",
 };

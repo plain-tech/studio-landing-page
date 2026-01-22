@@ -3,5 +3,5 @@ export const heroDetails = {
   subheading:
     "Generate & edit client-ready renders instantly, for professionals.",
   ctaText: "Start designing",
-  ctaUrl: "https://app.plain-service.com/#/studio",
+  ctaUrl: "https://app.therenderai.com/#/studio",
 };
