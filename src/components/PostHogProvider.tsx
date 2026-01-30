@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 import { posthog, initPostHog } from "@/posthog";
@@ -10,7 +10,8 @@ function PostHogPageView() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (pathname && posthog) {
+    // Must check __loaded - posthog object exists but may not be initialized yet
+    if (pathname && posthog.__loaded) {
       let url = window.origin + pathname;
       if (searchParams.toString()) {
         url = url + `?${searchParams.toString()}`;
@@ -23,8 +24,11 @@ function PostHogPageView() {
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
     initPostHog();
+    setIsReady(true);
   }, []);
 
   if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
@@ -33,7 +37,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <PHProvider client={posthog}>
-      <PostHogPageView />
+      {isReady && <PostHogPageView />}
       {children}
     </PHProvider>
   );
