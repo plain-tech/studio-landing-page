@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { HiArrowRight, HiArrowDownTray, HiBars3, HiOutlineXMark, HiShare } from "react-icons/hi2";
+import { HiArrowRight, HiArrowDownTray, HiBars3, HiOutlineXMark } from "react-icons/hi2";
 import { FaInstagram } from "react-icons/fa";
 import Footer from "@/components/Footer";
 import { posthog } from "@/posthog";
@@ -106,14 +106,6 @@ const DesignMePage: React.FC = () => {
     const instagramUsername = extractInstagramUsername(input);
     if (!instagramUsername) return;
 
-    // Track PostHog event
-    if (posthog.__loaded) {
-      posthog.capture("DESIGN_ME_SUBMIT", {
-        instagram_handle: instagramUsername,
-        raw_input: input,
-      });
-    }
-
     setIsLoading(true);
     setError(null);
     setResult(null);
@@ -142,16 +134,8 @@ const DesignMePage: React.FC = () => {
           description: data.description,
           aesthetic_summary: data.aesthetic_summary,
         });
-        // Track success
-        if (posthog.__loaded) {
-          posthog.capture("DESIGN_ME_SUCCESS", {
-            instagram_handle: instagramUsername,
-            style: data.aesthetic_summary?.style,
-          });
-        }
       } else {
         setError(data.error || "Something went wrong. Please try again.");
-        // Track failure
         if (posthog.__loaded) {
           posthog.capture("DESIGN_ME_ERROR", {
             instagram_handle: instagramUsername,
@@ -212,7 +196,7 @@ const DesignMePage: React.FC = () => {
           files: [file],
         });
         return;
-      } catch (err) {
+      } catch (_err) {
         console.log("Native share failed, falling back");
       }
     }
