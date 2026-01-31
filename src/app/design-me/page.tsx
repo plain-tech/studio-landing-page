@@ -196,7 +196,7 @@ const DesignMePage: React.FC = () => {
           files: [file],
         });
         return;
-      } catch (_err) {
+      } catch {
         console.log("Native share failed, falling back");
       }
     }
