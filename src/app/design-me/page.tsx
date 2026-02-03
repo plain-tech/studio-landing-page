@@ -186,38 +186,6 @@ const DesignMePage: React.FC = () => {
     }
   };
 
-  const handleShareInstagram = async () => {
-    if (!result?.visualization_url) return;
-
-    // Try native share API first (works on mobile)
-    if (navigator.share) {
-      try {
-        const response = await fetch(result.visualization_url);
-        const blob = await response.blob();
-        const file = new File([blob], "my-design.png", { type: "image/png" });
-        
-        await navigator.share({
-          title: "My AI-designed room",
-          text: "AI designed this room based on my aesthetic! ✨ Try it at therenderai.com/design-me",
-          files: [file],
-        });
-        return;
-      } catch {
-        console.log("Native share failed, falling back");
-      }
-    }
-
-    // Fallback: download image and copy caption
-    await handleDownload();
-    const caption = "AI designed this room based on my aesthetic! ✨\n\nTry it yourself: therenderai.com/design-me";
-    try {
-      await navigator.clipboard.writeText(caption);
-      alert("Image downloaded! Caption copied to clipboard - paste it when sharing to Instagram.");
-    } catch {
-      alert("Image downloaded! Share it to Instagram with: " + caption);
-    }
-  };
-
   const progressPercent = isLoading
     ? Math.min(((currentStep + 1) / LOADING_STEPS.length) * 100, 95)
     : 0;
