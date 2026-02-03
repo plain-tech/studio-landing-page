@@ -161,6 +161,12 @@ const DesignMePage: React.FC = () => {
 
   const handleDownload = async () => {
     if (!result?.visualization_url) return;
+    if (!input) return;
+
+    posthog?.capture("DESIGN_ME_DOWNLOAD", {
+      visualization_url: result.visualization_url,
+      instagram_handle: extractInstagramUsername(input),
+    });
 
     try {
       const response = await fetch(result.visualization_url);
@@ -375,13 +381,6 @@ const DesignMePage: React.FC = () => {
                 >
                   <HiArrowDownTray className="w-5 h-5" />
                   Download
-                </button>
-                <button
-                  onClick={handleShareInstagram}
-                  className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-foreground text-foreground rounded-full font-semibold hover:bg-foreground hover:text-white transition-colors"
-                >
-                  <FaInstagram className="w-5 h-5" />
-                  Share
                 </button>
               </div>
 
