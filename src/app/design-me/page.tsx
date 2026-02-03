@@ -171,6 +171,18 @@ const DesignMePage: React.FC = () => {
     try {
       const response = await fetch(result.visualization_url);
       const blob = await response.blob();
+      const file = new File([blob], "my-design.png", { type: "image/png" });
+
+      // Mobile: use Web Share API to save to camera roll
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: "My AI-designed room",
+        });
+        return;
+      }
+
+      // Desktop: programmatic download
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -181,7 +193,7 @@ const DesignMePage: React.FC = () => {
       window.URL.revokeObjectURL(url);
     } catch (err) {
       console.error("Download error:", err);
-      // Fallback: open in new tab
+      // Fallback: open in new tab (user can long-press to save on mobile)
       window.open(result.visualization_url, "_blank");
     }
   };
