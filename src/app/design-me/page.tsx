@@ -134,6 +134,8 @@ const DesignMePage: React.FC = () => {
           description: data.description,
           aesthetic_summary: data.aesthetic_summary,
         });
+        // Scroll to top to show result
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         setError(data.error || "Something went wrong. Please try again.");
         if (posthog.__loaded) {
@@ -168,20 +170,19 @@ const DesignMePage: React.FC = () => {
       instagram_handle: extractInstagramUsername(input),
     });
 
+    // Detect iOS (iPhone/iPad) - these don't support programmatic downloads
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    
+    if (isIOS) {
+      // iOS: open image in new tab, user long-presses to save
+      window.open(result.visualization_url, "_blank");
+      return;
+    }
+
     try {
       const response = await fetch(result.visualization_url);
       const blob = await response.blob();
-      const file = new File([blob], "my-design.png", { type: "image/png" });
-
-      // Mobile: use Web Share API to save to camera roll
-      if (navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: "My AI-designed room",
-        });
-        return;
-      }
-
+      
       // Desktop: programmatic download
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -193,7 +194,7 @@ const DesignMePage: React.FC = () => {
       window.URL.revokeObjectURL(url);
     } catch (err) {
       console.error("Download error:", err);
-      // Fallback: open in new tab (user can long-press to save on mobile)
+      // Fallback: open in new tab
       window.open(result.visualization_url, "_blank");
     }
   };
