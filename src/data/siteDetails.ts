@@ -1,7 +1,7 @@
 export const siteDetails = {
   siteName: "",
   siteUrl: "https://therenderai.com",
-  appUrl: "https://app.therenderai.com/#/studio",
+  appUrl: "https://app.therenderai.com",
   metadata: {
     title:
       "AI Interior Design Studio - Generate & Edit Visualisations in Seconds",
