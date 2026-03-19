@@ -392,19 +392,24 @@ const DesignMePage: React.FC = () => {
                   <HiArrowDownTray className="w-5 h-5" />
                   Download
                 </button>
-                <a
-                  href={`${siteDetails.appUrl}/#/studio?roomImage=${encodeURIComponent(result.visualization_url)}`}
+                <button
                   className="flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-accent text-foreground rounded-full font-semibold transition-colors"
                   onClick={() => {
-                    posthog.capture("DESIGN_ME_EDIT", {
-                      visualization_url: result.visualization_url,
-                      instagram_handle: extractInstagramUsername(input),
-                    });
+                    const destination = `${siteDetails.appUrl}/#/studio?roomImage=${encodeURIComponent(result.visualization_url)}`;
+                    posthog.capture(
+                      "DESIGN_ME_EDIT",
+                      {
+                        visualization_url: result.visualization_url,
+                        instagram_handle: extractInstagramUsername(input),
+                      },
+                      { send_instantly: true },
+                    );
+                    window.location.href = destination;
                   }}
                 >
                   <HiArrowRight className="w-5 h-5" />
                   Edit
-                </a>
+                </button>
               </div>
 
               {/* CTA */}
