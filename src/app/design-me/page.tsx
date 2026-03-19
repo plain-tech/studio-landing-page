@@ -2,7 +2,12 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { HiArrowRight, HiArrowDownTray, HiBars3, HiOutlineXMark } from "react-icons/hi2";
+import {
+  HiArrowRight,
+  HiArrowDownTray,
+  HiBars3,
+  HiOutlineXMark,
+} from "react-icons/hi2";
 import { FaInstagram } from "react-icons/fa";
 import Footer from "@/components/Footer";
 import { posthog } from "@/posthog";
@@ -10,23 +15,28 @@ import { posthog } from "@/posthog";
 // Simple markdown-like formatting for personalized descriptions
 function formatDescription(text: string): string {
   return text
-    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary font-semibold">$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/\n/g, '<br />');
+    .replace(
+      /\*\*(.*?)\*\*/g,
+      '<strong class="text-primary font-semibold">$1</strong>',
+    )
+    .replace(/\*(.*?)\*/g, "<em>$1</em>")
+    .replace(/\n/g, "<br />");
 }
 
 // Extract Instagram username from URL or clean up input
 function extractInstagramUsername(input: string): string {
   const trimmed = input.trim();
-  
+
   // Handle URLs like https://instagram.com/username or https://www.instagram.com/username/
-  const urlMatch = trimmed.match(/(?:https?:\/\/)?(?:www\.)?instagram\.com\/([a-zA-Z0-9._]+)\/?/);
+  const urlMatch = trimmed.match(
+    /(?:https?:\/\/)?(?:www\.)?instagram\.com\/([a-zA-Z0-9._]+)\/?/,
+  );
   if (urlMatch) {
     return urlMatch[1];
   }
-  
+
   // Remove @ prefix if present
-  return trimmed.replace(/^@/, '');
+  return trimmed.replace(/^@/, "");
 }
 import { Transition } from "@headlessui/react";
 
@@ -42,7 +52,8 @@ const IMAGE_BASE = "https://storage.googleapis.com/plain-public/web/img";
 const SHOWCASE_EXAMPLE = {
   src: `${IMAGE_BASE}/use_case_edit_materials_2.webp`,
   label: "Warm Contemporary",
-  message: "Your feed is full of earthy tones and natural textures. I designed a space with warm wood accents and cozy textiles that mirrors your aesthetic.",
+  message:
+    "Your feed is full of earthy tones and natural textures. I designed a space with warm wood accents and cozy textiles that mirrors your aesthetic.",
 };
 
 interface AestheticSummary {
@@ -85,7 +96,10 @@ const DesignMePage: React.FC = () => {
       stepIndex++;
       if (stepIndex < LOADING_STEPS.length) {
         setCurrentStep(stepIndex);
-        stepTimerRef.current = setTimeout(advanceStep, LOADING_STEPS[stepIndex].duration);
+        stepTimerRef.current = setTimeout(
+          advanceStep,
+          LOADING_STEPS[stepIndex].duration,
+        );
       }
     };
 
@@ -101,7 +115,7 @@ const DesignMePage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Extract username from URL or clean input
     const instagramUsername = extractInstagramUsername(input);
     if (!instagramUsername) return;
@@ -113,7 +127,9 @@ const DesignMePage: React.FC = () => {
 
     try {
       // Get PostHog distinct_id to propagate analytics identity to backend
-      const analyticsId = posthog.__loaded ? posthog.get_distinct_id() : undefined;
+      const analyticsId = posthog.__loaded
+        ? posthog.get_distinct_id()
+        : undefined;
 
       const response = await fetch(`${API_URL}/furnisher/v1/public/design-me`, {
         method: "POST",
@@ -172,7 +188,7 @@ const DesignMePage: React.FC = () => {
 
     // Detect iOS (iPhone/iPad) - these don't support programmatic downloads
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    
+
     if (isIOS) {
       // iOS: open image in new tab, user long-presses to save
       window.open(result.visualization_url, "_blank");
@@ -182,7 +198,7 @@ const DesignMePage: React.FC = () => {
     try {
       const response = await fetch(result.visualization_url);
       const blob = await response.blob();
-      
+
       // Desktop: programmatic download
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -286,7 +302,8 @@ const DesignMePage: React.FC = () => {
               Your Instagram, <span className="text-primary">Your Room</span>
             </h1>
             <p className="text-foreground-accent text-base max-w-md mx-auto">
-              We analyze your aesthetic and design a room that matches your vibe.
+              We analyze your aesthetic and design a room that matches your
+              vibe.
             </p>
           </div>
 
@@ -315,7 +332,10 @@ const DesignMePage: React.FC = () => {
 
           {/* Result Display */}
           {result && (
-            <div className="mb-10 animate-fade-in mx-auto" style={{ maxWidth: "800px" }}>
+            <div
+              className="mb-10 animate-fade-in mx-auto"
+              style={{ maxWidth: "800px" }}
+            >
               {/* Image */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl mb-6">
                 <img
@@ -323,23 +343,32 @@ const DesignMePage: React.FC = () => {
                   alt="Your personalized room design"
                   className="w-full h-auto"
                 />
-                
+
                 {/* Aesthetic Badge */}
                 <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
-                  <span className="font-medium">{result.aesthetic_summary.style}</span>
+                  <span className="font-medium">
+                    {result.aesthetic_summary.style}
+                  </span>
                 </div>
               </div>
 
               {/* Personalized Description */}
-              <div className="bg-card-background rounded-xl p-5 shadow-sm border border-border-color mb-6 mx-auto" style={{ maxWidth: "800px" }}>
-                <div 
+              <div
+                className="bg-card-background rounded-xl p-5 shadow-sm border border-border-color mb-6 mx-auto"
+                style={{ maxWidth: "800px" }}
+              >
+                <div
                   className="text-foreground text-sm md:text-base leading-relaxed prose prose-sm max-w-none"
-                  dangerouslySetInnerHTML={{ __html: formatDescription(result.description) }}
+                  dangerouslySetInnerHTML={{
+                    __html: formatDescription(result.description),
+                  }}
                 />
-                
+
                 {/* Style tags */}
                 <div className="mt-4 flex flex-wrap items-center gap-2">
-                  <span className="text-xs text-foreground-accent">Your style:</span>
+                  <span className="text-xs text-foreground-accent">
+                    Your style:
+                  </span>
                   {result.aesthetic_summary.colors.map((color, i) => (
                     <span
                       key={i}
@@ -363,6 +392,19 @@ const DesignMePage: React.FC = () => {
                   <HiArrowDownTray className="w-5 h-5" />
                   Download
                 </button>
+                <a
+                  href={`${siteDetails.appUrl}/#/studio?roomImage=${encodeURIComponent(result.visualization_url)}`}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-accent text-foreground rounded-full font-semibold transition-colors"
+                  onClick={() => {
+                    posthog.capture("DESIGN_ME_EDIT", {
+                      visualization_url: result.visualization_url,
+                      instagram_handle: extractInstagramUsername(input),
+                    });
+                  }}
+                >
+                  <HiArrowRight className="w-5 h-5" />
+                  Edit
+                </a>
               </div>
 
               {/* CTA */}

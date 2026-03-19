@@ -1,6 +1,6 @@
 import { IPricing } from "@/types";
 
-export const appUrl = "https://app.therenderai.com/#/studio";
+export const appUrl = "https://app.therenderai.com";
 
 export const tiers: IPricing[] = [
   {
